@@ -35,6 +35,9 @@ async function run() {
         await client.connect();
 
         const coffeeCollection = client.db('coffeeDB').collection('coffee');
+        
+        // user collection
+        const userCollection = client.db('coffeeDB').collection('user');
 
         // get operation (read)
         app.get('/coffee', async (req, res) => {
@@ -100,7 +103,7 @@ async function run() {
             res.send(result)
         })
 
-
+        
         // Send a ping to confirm a successful connection
         await client.db("admin").command({
             ping: 1
